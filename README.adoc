@@ -1,0 +1,12 @@
+# mariadb-docker-armhf
+:toc:
+
+## Build and run
+ 
+```
+docker build --tag mariadb-armhf:10.3-stretch . 
+docker run -t -i --entrypoint /usr/bin/qemu-arm-static mariadb-armhf:10.3-stretch /bin/bash
+```
+
+The `docker-entrypoint.sh` is copied as-is from 
+https://github.com/docker-library/mariadb/blob/master/10.3/docker-entrypoint.sh
