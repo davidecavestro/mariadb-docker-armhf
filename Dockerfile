@@ -52,7 +52,7 @@ RUN cmake . \
 #  -DWITHOUT_ROCKSDB_SE_STORAGE_ENGINE=1 \
 #  -DWITH_SPIDER_STORAGE_ENGINE=0 \
   -DWITH_SAFEMALLOC=OFF \
-  -DWITH_SSL=bundled 
+  -DWITH_SSL=bundled \
   -G Ninja
 
 #RUN make -j4
