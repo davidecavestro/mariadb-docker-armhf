@@ -4,7 +4,10 @@ services:
 language: bash
 script:
 # download qemu
-- curl -L https://github.com/multiarch/qemu-user-static/releases/download/v3.0.0/qemu-arm-static.tar.gz | tar zxvf - -C .
+- >
+  curl -L \
+  https://github.com/multiarch/qemu-user-static/releases/download/v3.0.0/qemu-arm-static.tar.gz | \
+  tar zxvf - -C .
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
