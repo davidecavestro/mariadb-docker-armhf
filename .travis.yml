@@ -15,8 +15,8 @@ script:
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    TAG=$(grep "ARG MARIADB_VERSION" Dockerfile | awk -F '=' '{print $2}')
+    TAG=$(grep "ARG MARIADB_VERSION" Dockerfile | awk -F '=' '{print $2}')-travis
     docker tag davidecavestro/mariadb-arm-stretch davidecavestro/mariadb-arm-stretch:$TAG
     docker push davidecavestro/mariadb-arm-stretch:$TAG
-    docker push davidecavestro/mariadb-arm-stretch
+#    docker push davidecavestro/mariadb-arm-stretch
   fi
