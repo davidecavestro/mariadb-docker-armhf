@@ -11,7 +11,7 @@ docker run -t -i --entrypoint /usr/bin/qemu-arm-static mariadb-armhf:10.3-stretc
 The `docker-entrypoint.sh` is copied as-is from 
 https://github.com/docker-library/mariadb/blob/master/10.3/docker-entrypoint.sh
 
-## License:
+## License
 Inherited from Mariadb:
 Note:
 MariaDB is specifically available only under version 2 of the GNU General Public License (GPLv2). (I.e. Without the "any later version" clause.) This is inherited from MySQL. Please see the README file in the MySQL distribution for more information.
