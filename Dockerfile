@@ -10,7 +10,7 @@ RUN \
   apt-get -y --no-install-recommends install apt-utils git ca-certificates libneon27-gnutls-dev ninja-build && \
   apt-get -y --no-install-recommends build-dep mariadb-server
 
-ARG MARIADB_VERSION=10.3
+ARG MARIADB_VERSION = 10.3
 RUN git clone --branch $MARIADB_VERSION --single-branch --depth=1 https://github.com/MariaDB/server.git /src
 
 WORKDIR /src
@@ -53,15 +53,15 @@ RUN cmake . \
 #  -DWITH_SPIDER_STORAGE_ENGINE=0 \
   -DWITH_SAFEMALLOC=OFF \
   -DWITH_SSL=bundled 
-#  -G Ninja
+  -G Ninja
 
-RUN make -j4
-#RUN ninja -j4
+#RUN make -j4
+RUN ninja -j4
 
 WORKDIR /src
 
-RUN make install
-#RUN ninja install
+#RUN make install
+RUN ninja install
 
 FROM arm32v7/debian:stretch-slim AS release
 ARG DEBIAN_FRONTEND=noninteractive
