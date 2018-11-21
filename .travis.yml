@@ -1,0 +1,22 @@
+sudo: required
+services:
+- docker
+language: bash
+script:
+# download qemu
+- curl -L https://github.com/multiarch/qemu-user-static/releases/download/v3.0.0/qemu-arm-static.tar.gz | tar zxvf - -C .
+# prepare qemu
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+# build image
+- docker build -t davidecavestro/mariadb-arm-stretch .
+# test image
+- docker run davidecavestro/mariadb-arm-stretch mysql --version
+# push image
+- >
+  if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+    TAG=$(grep "ARG MARIADB_VERSION" Dockerfile | awk 'NF>1{print $NF}')
+    docker tag davidecavestro/mariadb-arm-stretch davidecavestro/mariadb-arm-stretch:$TAG
+    docker push davidecavestro/mariadb-arm-stretch:$TAG
+    docker push davidecavestro/mariadb-arm-stretch
+  fi
