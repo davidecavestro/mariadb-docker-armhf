@@ -10,7 +10,7 @@ RUN \
   apt-get -y --no-install-recommends install apt-utils git ca-certificates libneon27-gnutls-dev ninja-build && \
   apt-get -y --no-install-recommends build-dep mariadb-server
 
-ARG MARIADB_VERSION = 10.3
+ARG MARIADB_VERSION=10.3
 RUN git clone --branch $MARIADB_VERSION --single-branch --depth=1 https://github.com/MariaDB/server.git /src
 
 WORKDIR /src
