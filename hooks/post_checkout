@@ -1,4 +1,4 @@
 #!/bin/bash
-apt-get install -y -no-install-recommends curl
+apt-get install -y -no-install-recommends curl qemu-user-static
 # downloads a local copy of qemu on docker-hub build machines
 curl -L https://github.com/multiarch/qemu-user-static/releases/download/v3.0.0/qemu-arm-static.tar.gz | tar zxvf - -C .
