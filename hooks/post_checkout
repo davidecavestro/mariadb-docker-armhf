@@ -1,5 +1,7 @@
 #!/bin/bash
+cat /proc/sys/fs/binfmt_misc/qemu-arm
 apt-get update
-apt-get install -y --no-install-recommends curl qemu-user-static
+apt-get install -y --no-install-recommends curl qemu-user-static binfmt-support
+cat /proc/sys/fs/binfmt_misc/qemu-arm
 # local copy of qemu binary 
 cp -p $(which qemu-arm-static) .
