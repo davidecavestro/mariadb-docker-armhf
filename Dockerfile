@@ -1,6 +1,6 @@
 FROM arm32v7/debian:stretch-slim AS builder
 
-COPY qemu-arm-static /usr/bin
+#COPY qemu-arm-static /usr/bin
 
 ARG DEBIAN_FRONTEND=noninteractive
 
