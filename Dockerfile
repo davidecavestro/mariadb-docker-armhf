@@ -54,7 +54,7 @@ RUN ninja install
 
 FROM arm32v7/debian:stretch-slim AS release
 ARG DEBIAN_FRONTEND=noninteractive
-COPY qemu-arm-static /usr/bin
+#COPY qemu-arm-static /usr/bin
 
 RUN \
   apt-get update && \
