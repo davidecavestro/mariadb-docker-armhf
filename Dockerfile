@@ -1,5 +1,5 @@
 ARG CODE_VERSION=latest
-FROM davidecavestro/mariadb-arm-stretch-compile:${CODE_VERSION}
+FROM davidecavestro/mariadb-arm-stretch-builder:${CODE_VERSION}
 
 COPY qemu-arm-static /usr/bin
 
