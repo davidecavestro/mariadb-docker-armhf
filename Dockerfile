@@ -3,6 +3,7 @@ FROM davidecavestro/mariadb-arm-stretch-builder:${CODE_VERSION}
 
 COPY qemu-arm-static /usr/bin
 
+ARG MARIADB_VERSION=10.3
 ARG DEBIAN_FRONTEND=noninteractive
 
 #RUN make -j4
