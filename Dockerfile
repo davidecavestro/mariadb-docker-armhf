@@ -1,9 +1,9 @@
-ARG CODE_VERSION=latest
-FROM davidecavestro/mariadb-arm-stretch-builder:${CODE_VERSION}
+ARG MARIADB_VERSION=10.3
+ARG TAG=${MARIADB_VERSION}
+FROM davidecavestro/mariadb-arm-stretch-builder:${TAG}
 
 COPY qemu-arm-static /usr/bin
 
-ARG MARIADB_VERSION=10.3
 ARG DEBIAN_FRONTEND=noninteractive
 
 #RUN make -j4

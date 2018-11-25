@@ -12,7 +12,12 @@ script:
       # prepare qemu
       docker run --rm --privileged multiarch/qemu-user-static:register --reset
       # build image
-      docker build -t davidecavestro/mariadb-arm-stretch --cache-from davidecavestro/mariadb-arm-stretch:$TAG --cache-from davidecavestro/mariadb-arm-stretch-builder:$TAG --build-arg CODE_VERSION=$CODE_VERSION .
+      docker build -t davidecavestro/mariadb-arm-stretch \
+        --cache-from davidecavestro/mariadb-arm-stretch:$TAG \
+        --cache-from davidecavestro/mariadb-arm-stretch-builder:$TAG \
+        --build-arg CODE_VERSION=$CODE_VERSION \
+        --build-arg TAG=$TAG \
+        .
       # test image
       docker run davidecavestro/mariadb-arm-stretch mysql --version
       # push image
